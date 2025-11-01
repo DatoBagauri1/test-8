@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #0a0a0a 0%, #111 100%);
+            color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff0000, #b30000, #111);
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding: 25px 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff3b3b;
+            border-bottom: 3px solid #ff3b3b;
+            box-shadow: 0 0 20px #ff00004d;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.9);
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 10px #000;
+        }
+
+
+        nav img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #ff1a1a;
+        }
+
+        nav img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ff1a1a;
+        }
+
+ 
+        nav a {
+            text-decoration: none;
+            color: #ff4b4b;
+            background: transparent;
+            font-size: 1.2rem;
+            padding: 8px 18px;
+            border: 1px solid #ff4b4b;
+            border-radius: 25px;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #ff4b4b;
+            color: white;
+            box-shadow: 0 0 15px #ff4b4b;
+        }
+
+     
+        main {
+            flex: 1;
+            width: 80%;
+            background: rgba(30, 30, 30, 0.8);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+            animation: fadeIn 1s ease;
+        }
+
+        main h2 {
+            color: #ff4b4b;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px #ff0000;
+        }
+
+        main ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        main li {
+            padding: 10px;
+            margin: 8px 0;
+            border-bottom: 1px solid #333;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            color: #ddd;
+        }
+
+        main li strong {
+            color: #ff4b4b;
+            font-weight: 600;
+        }
+
+   
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+       
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff1a1a;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>ჩემი Django-ს პროექტი</h2>
+    </header>
+
+    <nav>
+        
+        <img src="https://th.bing.com/th/id/OIP.x2I-mRIIg09T9YkiX_MydwHaF7?w=244&h=195&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Image">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.U-IaX9YgtyI7xPmSyw1_ggAAAA?pid=ImgDet&w=184&h=184&c=7&dpr=1.3&o=7&rm=3" alt="Image">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.msBamGYMNFw8NS_RGEPfmwAAAA?pid=ImgDet&w=187&h=277&c=7&dpr=1.3&o=7&rm=3" alt="Image">
+        <a href="/films/">Films</a>
+        <a href="/">Home</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
